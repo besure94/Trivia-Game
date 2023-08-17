@@ -20,7 +20,7 @@ module.exports = {
 			verbose: true
 		}),
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'Trivia Flash Cards',
       template: './src/index.html',
       inject: 'body'
     }),
