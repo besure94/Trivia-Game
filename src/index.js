@@ -34,11 +34,13 @@ function getTrivia(searchType) {
 
 function printElements(response) {
   console.log(response);
+  let triviaDiv = document.querySelector("div#showTrivia");
+  triviaDiv.innerHTML = response.results[0].question;
 }
 
 function printError(response) {
   console.log(response);
-  document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia:`
+  document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia:`;
 }
 
 function handleFormSubmission(event) {
