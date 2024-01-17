@@ -22,7 +22,7 @@ function getTrivia(searchType) {
   request.addEventListener("loadend", function() {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
-      printElements(response);
+      printTrivia(response);
     } else {
       printError(response);
     }
@@ -32,7 +32,7 @@ function getTrivia(searchType) {
   request.send();
 }
 
-function printElements(response) {
+function printTrivia(response) {
   console.log(response);
   let triviaDiv = document.querySelector("div#showTrivia");
   const userAnswers = document.getElementById("userAnswers");
