@@ -37,16 +37,28 @@ function printTrivia(response) {
   let triviaDiv = document.querySelector("div#showTrivia");
   const userAnswers = document.getElementById("userAnswers");
   const trueOrFalse = document.getElementById("trueOrFalse");
-  const answerBox = document.getElementById("answerBox");
+  const multipleChoice = document.getElementById("multipleChoice");
+  const optionOne = document.getElementById("optionOne");
+  const optionTwo = document.getElementById("optionTwo");
+  const optionThree = document.getElementById("optionThree");
+  const optionFour = document.getElementById("optionFour");
   triviaDiv.innerHTML = response.results[0].question;
   if (response.results[0].type == "boolean") {
     userAnswers.removeAttribute("class", "hidden");
     trueOrFalse.removeAttribute("class", "hidden");
-    answerBox.setAttribute("class", "hidden");
+    multipleChoice.setAttribute("class", "hidden");
   }
   else if (response.results[0].type == "multiple") {
     userAnswers.removeAttribute("class", "hidden");
-    answerBox.removeAttribute("class", "hidden");
+    multipleChoice.removeAttribute("class", "hidden");
+    document.querySelector(`label[for="optionOne"]`).innerText = response.results[0].correct_answer;
+    document.querySelector(`label[for="optionTwo"]`).innerText = response.results[0].incorrect_answers[0];
+    document.querySelector(`label[for="optionThree"]`).innerText = response.results[0].incorrect_answers[1];
+    document.querySelector(`label[for="optionFour"]`).innerText = response.results[0].incorrect_answers[2];
+    optionOne.value = response.results[0].correct_answer;
+    optionTwo.value = response.results[0].incorrect_answers[0];
+    optionThree.value = response.results[0].incorrect_answers[1];
+    optionFour.value = response.results[0].incorrect_answers[2];
     trueOrFalse.setAttribute("class", "hidden");
   }
 }
