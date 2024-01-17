@@ -35,7 +35,20 @@ function getTrivia(searchType) {
 function printElements(response) {
   console.log(response);
   let triviaDiv = document.querySelector("div#showTrivia");
+  const userAnswers = document.getElementById("userAnswers");
+  const trueOrFalse = document.getElementById("trueOrFalse");
+  const answerBox = document.getElementById("answerBox");
   triviaDiv.innerHTML = response.results[0].question;
+  if (response.results[0].type == "boolean") {
+    userAnswers.removeAttribute("class", "hidden");
+    trueOrFalse.removeAttribute("class", "hidden");
+    answerBox.setAttribute("class", "hidden");
+  }
+  else if (response.results[0].type == "multiple") {
+    userAnswers.removeAttribute("class", "hidden");
+    answerBox.removeAttribute("class", "hidden");
+    trueOrFalse.setAttribute("class", "hidden");
+  }
 }
 
 function printError(response) {

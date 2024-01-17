@@ -42,6 +42,25 @@
     </form>
     <br>
     <div id="showTrivia"></div>
+    <div class="hidden" id="userAnswers">
+      <form>
+        <div class="hidden" id="trueOrFalse">
+          <label>
+            <input type="radio" name="answer" value="true"> True
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="answer" value="false"> False
+          </label>
+        </div>
+        <div class="hidden" id="answerBox">
+          <label>
+            <input type="text" placeholder="Type answer here">
+          </label>
+        </div>
+        <button type="submit" id="submitAnswer">Submit</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
