@@ -41,16 +41,22 @@ function printTrivia(response) {
   const optionTwo = document.getElementById("optionTwo");
   const optionThree = document.getElementById("optionThree");
   const optionFour = document.getElementById("optionFour");
-  triviaDiv.innerHTML = response.results[0].question;
-  if (response.results[0].type == "boolean") {
+
+  const triviaKeys = response.results;
+  console.log(triviaKeys);
+  const randomTriviaIndex = triviaKeys[Math.floor(Math.random() * triviaKeys.length)];
+  console.log(randomTriviaIndex);
+
+  triviaDiv.innerHTML = randomTriviaIndex.question;
+  if (randomTriviaIndex.type == "boolean") {
     trueOrFalse.removeAttribute("class", "hidden");
     multipleChoice.setAttribute("class", "hidden");
-  } else if (response.results[0].type == "multiple") {
+  } else if (randomTriviaIndex.type == "multiple") {
     multipleChoice.removeAttribute("class", "hidden");
-    document.querySelector(`label[for="optionOne"]`).innerText = response.results[0].correct_answer;
-    document.querySelector(`label[for="optionTwo"]`).innerText = response.results[0].incorrect_answers[0];
-    document.querySelector(`label[for="optionThree"]`).innerText = response.results[0].incorrect_answers[1];
-    document.querySelector(`label[for="optionFour"]`).innerText = response.results[0].incorrect_answers[2];
+    document.querySelector(`label[for="optionOne"]`).innerText = randomTriviaIndex.correct_answer;
+    document.querySelector(`label[for="optionTwo"]`).innerText = randomTriviaIndex.incorrect_answers[0];
+    document.querySelector(`label[for="optionThree"]`).innerText = randomTriviaIndex.incorrect_answers[1];
+    document.querySelector(`label[for="optionFour"]`).innerText = randomTriviaIndex.incorrect_answers[2];
     optionOne.value = true;
     optionTwo.value = false;
     optionThree.value = false;
