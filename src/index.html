@@ -7,7 +7,7 @@
   <div class="container">
     <h1>Search trivia questions below!</h1>
     <p>To search for trivia questions, simply select a topic that you are interested in.</p>
-    <form>
+    <form id="triviaQueryForm">
       <label>
         <input type="radio" name="trivia" value="music">
         Music
@@ -42,31 +42,38 @@
     </form>
     <br>
     <div id="showTrivia"></div>
-    <div class="hidden" id="userAnswers">
-      <form>
-        <div class="hidden" id="trueOrFalse">
-          <label>
-            <input type="radio" name="answer" value="true"> True
-          </label>
-          <br>
-          <label>
-            <input type="radio" name="answer" value="false"> False
-          </label>
-        </div>
-        <div class="hidden" id="multipleChoice">
-          <input type="radio" name="multiple" value="one" id="optionOne">
-          <label for="optionOne">Option 1</label>
-          <br>
-          <input type="radio" name="multiple" value="two" id="optionTwo">
-          <label for="optionTwo">Option 2</label>
-          <br>
-          <input type="radio" name="multiple" value="three" id="optionThree">
-          <label for="optionThree">Option 3</label>
-          <br>
-          <input type="radio" name="multiple" value="four" id="optionFour">
-          <label for="optionFour">Option 4</label>
-        </div>
+    <div class="hidden" id="trueOrFalse">
+      <form id="trueFalseAnswerForm">
+        <label>
+          <input type="radio" name="userAnswer" value="true"> True
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="userAnswer" value="false"> False
+        </label>
+        <br>
         <button type="submit" id="submitAnswer">Submit</button>
+      </form>
+    </div>
+
+    <div class="hidden" id="multipleChoice">
+      <form id="multChoiceAnswerForm">
+        <input type="radio" name="multChoiceUserAnswer" id="optionOne">
+        <label for="optionOne">Option 1</label>
+        <br>
+        <input type="radio" name="multChoiceUserAnswer" id="optionTwo">
+        <label for="optionTwo">Option 2</label>
+        <br>
+        <input type="radio" name="multChoiceUserAnswer" id="optionThree">
+        <label for="optionThree">Option 3</label>
+        <br>
+        <input type="radio" name="multChoiceUserAnswer" id="optionFour">
+        <label for="optionFour">Option 4</label>
+        <br>
+        <button type="submit" id="submitAnswer">Submit</button>
+        <br>
+        <br>
+        <p id="multChoiceAnswerResult"></p>
       </form>
     </div>
   </div>
