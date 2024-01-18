@@ -33,6 +33,7 @@ function getTrivia(searchType) {
 }
 
 function printTrivia(response) {
+  console.log(response);
   let triviaDiv = document.querySelector("div#showTrivia");
   const trueOrFalse = document.getElementById("trueOrFalse");
   const multipleChoice = document.getElementById("multipleChoice");
@@ -100,3 +101,7 @@ window.addEventListener("load", function() {
     });
   });
 });
+
+// work on figuring out a way to randomize incorrect and correct answers in answer forms
+
+// work on figuring a way to tally users correct and incorrect answers after each question
