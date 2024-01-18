@@ -63,36 +63,40 @@ function printError(response) {
   document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia:`;
 }
 
-function handleTriviaFormSubmission(event) {
-  event.preventDefault();
-  const radioButtons = document.querySelector("input[name='trivia']:checked").value;
-  getTrivia(radioButtons);
-}
-
-function handleTrueFalseAnswerFormSubmission(event) {
-  event.preventDefault();
-  const trueOrFalseAnswer = document.querySelector("input[name='userAnswer']:checked").value;
-  let trueOrFalseAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
-  if (trueOrFalseAnswer == "true") {
-    trueOrFalseAnswerResult.innerText = "Correct!";
-  } else {
-    trueOrFalseAnswerResult.innerText = "Incorrect!";
-  }
-}
-
-function handleMultChoiceAnswerFormSubmission(event) {
-  event.preventDefault();
-  const triviaAnswers = document.querySelector("input[name='multChoiceUserAnswer']:checked").value;
-  let answerResultDiv = document.querySelector("p#multChoiceAnswerResult");
-  if (triviaAnswers == "true") {
-    answerResultDiv.innerText = "Correct!";
-  } else {
-    answerResultDiv.innerText = "Incorrect!";
-  }
-}
-
 window.addEventListener("load", function() {
-  document.querySelector('form#triviaQueryForm').addEventListener("submit", handleTriviaFormSubmission);
-  document.querySelector('form#trueFalseAnswerForm').addEventListener("submit", handleTrueFalseAnswerFormSubmission);
-  document.querySelector('form#multChoiceAnswerForm').addEventListener("submit", handleMultChoiceAnswerFormSubmission);
+  document.querySelector('form#triviaQueryForm').addEventListener("submit", function (event) {
+    event.preventDefault();
+    const radioButtons = document.querySelector("input[name='trivia']:checked").value;
+    getTrivia(radioButtons);
+    document.querySelector('form#trueFalseAnswerForm').addEventListener("submit", function (e) {
+      e.preventDefault();
+      const trueOrFalseAnswer = document.querySelector("input[name='userAnswer']:checked").value;
+      let trueOrFalseAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
+      if (trueOrFalseAnswer == "true") {
+        trueOrFalseAnswerResult.innerText = "Correct!";
+      } else {
+        trueOrFalseAnswerResult.innerText = "Incorrect!";
+      }
+      let resetDiv = document.querySelector("div#resetButton");
+      resetDiv.removeAttribute("class", "hidden");
+      document.querySelector("#clear").addEventListener("click", function() {
+        window.location.reload();
+      });
+    });
+    document.querySelector('form#multChoiceAnswerForm').addEventListener("submit", function (evnt) {
+      evnt.preventDefault();
+      const triviaAnswers = document.querySelector("input[name='multChoiceUserAnswer']:checked").value;
+      let answerResultDiv = document.querySelector("p#multChoiceAnswerResult");
+      if (triviaAnswers == "true") {
+        answerResultDiv.innerText = "Correct!";
+      } else {
+        answerResultDiv.innerText = "Incorrect!";
+      }
+      let resetDiv = document.querySelector("div#resetButton");
+      resetDiv.removeAttribute("class", "hidden");
+      document.querySelector("#clear").addEventListener("click", function() {
+        window.location.reload();
+      });
+    });
+  });
 });
