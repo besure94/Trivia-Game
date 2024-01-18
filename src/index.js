@@ -33,7 +33,6 @@ function getTrivia(searchType) {
 }
 
 function printTrivia(response) {
-  console.log(response);
   let triviaDiv = document.querySelector("div#showTrivia");
   const trueOrFalse = document.getElementById("trueOrFalse");
   const multipleChoice = document.getElementById("multipleChoice");
@@ -41,7 +40,6 @@ function printTrivia(response) {
   const optionTwo = document.getElementById("optionTwo");
   const optionThree = document.getElementById("optionThree");
   const optionFour = document.getElementById("optionFour");
-  console.log(response.results[0]);
   triviaDiv.innerHTML = response.results[0].question;
   if (response.results[0].type == "boolean") {
     trueOrFalse.removeAttribute("class", "hidden");
@@ -71,23 +69,30 @@ function handleTriviaFormSubmission(event) {
   getTrivia(radioButtons);
 }
 
+function handleTrueFalseAnswerFormSubmission(event) {
+  event.preventDefault();
+  const trueOrFalseAnswer = document.querySelector("input[name='userAnswer']:checked").value;
+  let trueOrFalseAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
+  if (trueOrFalseAnswer == "true") {
+    trueOrFalseAnswerResult.innerText = "Correct!";
+  } else {
+    trueOrFalseAnswerResult.innerText = "Incorrect!";
+  }
+}
+
 function handleMultChoiceAnswerFormSubmission(event) {
   event.preventDefault();
   const triviaAnswers = document.querySelector("input[name='multChoiceUserAnswer']:checked").value;
   let answerResultDiv = document.querySelector("p#multChoiceAnswerResult");
-  console.log(triviaAnswers);
   if (triviaAnswers == "true") {
-    console.log("Your answer is correct!");
     answerResultDiv.innerText = "Correct!";
   } else {
-    console.log("Your answer is incorrect!");
     answerResultDiv.innerText = "Incorrect!";
   }
 }
 
 window.addEventListener("load", function() {
   document.querySelector('form#triviaQueryForm').addEventListener("submit", handleTriviaFormSubmission);
+  document.querySelector('form#trueFalseAnswerForm').addEventListener("submit", handleTrueFalseAnswerFormSubmission);
   document.querySelector('form#multChoiceAnswerForm').addEventListener("submit", handleMultChoiceAnswerFormSubmission);
 });
-
-// create separate forms for T/F questions and multiple choice questions
