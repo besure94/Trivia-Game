@@ -82,6 +82,7 @@ window.addEventListener("load", function() {
     getTrivia(radioButtons);
     document.querySelector('form#trueFalseAnswerForm').addEventListener("submit", function (e) {
       e.preventDefault();
+      document.getElementById("submitTrueFalseAnswer").setAttribute("class", "hidden");
       const userAnswer = document.querySelector("input[name='userAnswer']:checked").value;
       let userAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
       if (userAnswer == "true") {
@@ -97,6 +98,7 @@ window.addEventListener("load", function() {
     });
     document.querySelector('form#multChoiceAnswerForm').addEventListener("submit", function (evnt) {
       evnt.preventDefault();
+      document.getElementById("submitMultChoiceAnswer").setAttribute("class", "hidden");
       const triviaAnswers = document.querySelector("input[name='multChoiceUserAnswer']:checked").value;
       let answerResultDiv = document.querySelector("p#multChoiceAnswerResult");
       if (triviaAnswers == "true") {
@@ -112,7 +114,3 @@ window.addEventListener("load", function() {
     });
   });
 });
-
-// work on figuring out a way to randomize incorrect and correct answers in answer forms
-
-// work on figuring a way to tally users correct and incorrect answers after each question
