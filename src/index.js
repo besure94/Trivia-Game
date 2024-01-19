@@ -6,17 +6,17 @@ function getTrivia(searchType) {
   let request = new XMLHttpRequest();
   let url = "";
   if (searchType === "music") {
-    url = `https://opentdb.com/api.php?amount=10&category=12&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=12&difficulty=easy`;
   } else if (searchType === "film") {
-    url = `https://opentdb.com/api.php?amount=10&category=11&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=11&difficulty=easy`;
   } else if (searchType === "tv") {
-    url = `https://opentdb.com/api.php?amount=10&category=14&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=14&difficulty=easy`;
   } else if (searchType === "geography") {
-    url = `https://opentdb.com/api.php?amount=10&category=22&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=22&difficulty=easy`;
   } else if (searchType === "history") {
-    url = `https://opentdb.com/api.php?amount=10&category=23&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=23&difficulty=easy`;
   } else if (searchType === "politics") {
-    url = `https://opentdb.com/api.php?amount=10&category=24&difficulty=easy`;
+    url = `https://opentdb.com/api.php?amount=50&category=24&difficulty=easy`;
   }
 
   request.addEventListener("loadend", function() {
@@ -47,22 +47,37 @@ function printTrivia(response) {
   const randomTriviaIndex = triviaKeys[Math.floor(Math.random() * triviaKeys.length)];
   console.log(randomTriviaIndex);
 
+  // work on randomizing trivia answers on user form with data from API answers
+
+  // create a new array and push correct answer and incorrect answer array into it. Shuffle array contents, then use forEach loop to remove each answer.
+
+  const answersArray = randomTriviaIndex.incorrect_answers.slice();
+  answersArray.push(randomTriviaIndex.correct_answer);
+  shuffleAnswersArray(answersArray);
+  console.log(answersArray);
+
+  const incorrectTriviaAnswerKeys = randomTriviaIndex.incorrect_answers;
+
   triviaDiv.innerHTML = randomTriviaIndex.question;
   if (randomTriviaIndex.type == "boolean") {
     trueOrFalse.removeAttribute("class", "hidden");
     multipleChoice.setAttribute("class", "hidden");
   } else if (randomTriviaIndex.type == "multiple") {
     multipleChoice.removeAttribute("class", "hidden");
-    document.querySelector(`label[for="optionOne"]`).innerText = randomTriviaIndex.correct_answer;
-    document.querySelector(`label[for="optionTwo"]`).innerText = randomTriviaIndex.incorrect_answers[0];
-    document.querySelector(`label[for="optionThree"]`).innerText = randomTriviaIndex.incorrect_answers[1];
-    document.querySelector(`label[for="optionFour"]`).innerText = randomTriviaIndex.incorrect_answers[2];
-    optionOne.value = true;
+    document.querySelector(`label[for="optionOne"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
+    document.querySelector(`label[for="optionTwo"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
+    document.querySelector(`label[for="optionThree"]`).innerText = randomTriviaIndex.correct_answer;
+    document.querySelector(`label[for="optionFour"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
+    optionOne.value = false;
     optionTwo.value = false;
-    optionThree.value = false;
+    optionThree.value = true;
     optionFour.value = false;
     trueOrFalse.setAttribute("class", "hidden");
   }
+}
+
+function shuffleAnswersArray(answersArray) {
+  answersArray.sort(() => Math.random() - 0.5);
 }
 
 function printError(response) {
