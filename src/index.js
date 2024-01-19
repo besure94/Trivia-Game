@@ -37,26 +37,14 @@ function printTrivia(response) {
   let triviaDiv = document.querySelector("div#showTrivia");
   const trueOrFalse = document.getElementById("trueOrFalse");
   const multipleChoice = document.getElementById("multipleChoice");
-  const optionOne = document.getElementById("optionOne");
-  const optionTwo = document.getElementById("optionTwo");
-  const optionThree = document.getElementById("optionThree");
-  const optionFour = document.getElementById("optionFour");
 
   const triviaKeys = response.results;
-  console.log(triviaKeys);
   const randomTriviaIndex = triviaKeys[Math.floor(Math.random() * triviaKeys.length)];
   console.log(randomTriviaIndex);
-
-  // work on randomizing trivia answers on user form with data from API answers
-
-  // create a new array and push correct answer and incorrect answer array into it. Shuffle array contents, then use forEach loop to remove each answer.
 
   const answersArray = randomTriviaIndex.incorrect_answers.slice();
   answersArray.push(randomTriviaIndex.correct_answer);
   shuffleAnswersArray(answersArray);
-  console.log(answersArray);
-
-  const incorrectTriviaAnswerKeys = randomTriviaIndex.incorrect_answers;
 
   triviaDiv.innerHTML = randomTriviaIndex.question;
   if (randomTriviaIndex.type == "boolean") {
@@ -64,14 +52,16 @@ function printTrivia(response) {
     multipleChoice.setAttribute("class", "hidden");
   } else if (randomTriviaIndex.type == "multiple") {
     multipleChoice.removeAttribute("class", "hidden");
-    document.querySelector(`label[for="optionOne"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
-    document.querySelector(`label[for="optionTwo"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
-    document.querySelector(`label[for="optionThree"]`).innerText = randomTriviaIndex.correct_answer;
-    document.querySelector(`label[for="optionFour"]`).innerText = incorrectTriviaAnswerKeys[Math.floor(Math.random() * incorrectTriviaAnswerKeys.length)];
-    optionOne.value = false;
-    optionTwo.value = false;
-    optionThree.value = true;
-    optionFour.value = false;
+    let labelArray = ["optionOne", "optionTwo", "optionThree", "optionFour"];
+    answersArray.forEach(function(element) {
+      document.querySelector(`label[for=${labelArray[0]}]`).innerText = element;
+      if (element == randomTriviaIndex.correct_answer) {
+        document.getElementById(`${labelArray[0]}`).value = true;
+      } else {
+        document.getElementById(`${labelArray[0]}`).value = element;
+      }
+      labelArray.shift();
+    });
     trueOrFalse.setAttribute("class", "hidden");
   }
 }
@@ -92,12 +82,12 @@ window.addEventListener("load", function() {
     getTrivia(radioButtons);
     document.querySelector('form#trueFalseAnswerForm').addEventListener("submit", function (e) {
       e.preventDefault();
-      const trueOrFalseAnswer = document.querySelector("input[name='userAnswer']:checked").value;
-      let trueOrFalseAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
-      if (trueOrFalseAnswer == "true") {
-        trueOrFalseAnswerResult.innerText = "Correct!";
+      const userAnswer = document.querySelector("input[name='userAnswer']:checked").value;
+      let userAnswerResult = document.querySelector("p#trueOrFalseAnswerResult");
+      if (userAnswer == "true") {
+        userAnswerResult.innerText = "Correct!";
       } else {
-        trueOrFalseAnswerResult.innerText = "Incorrect!";
+        userAnswerResult.innerText = "Incorrect!";
       }
       let resetDiv = document.querySelector("div#resetButton");
       resetDiv.removeAttribute("class", "hidden");
