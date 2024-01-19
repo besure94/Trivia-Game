@@ -3,13 +3,13 @@ body {
 }
 
 button {
-  background-color: #ee2e31;
+  background-color: #3a7ca5;
   color: black;
   font-weight: 900;
 }
 
 h1 {
-  color: #ee2e31;
+  color: #3a7ca5;
   font-weight: 900;
 }
 
@@ -18,21 +18,31 @@ h1 {
 }
 
 hr {
-  color: #ee2e31;
+  border: 2px solid #3a7ca5;
 }
 
 label {
-  color: #ee2e31;
-  font-weight: 500;
+  color: #3a7ca5;
+  font-weight: 600;
 }
 
 p {
-  color: #ee2e31;
+  color: #3a7ca5;
   font-weight: 700;
+}
+
+p#multChoiceAnswerResult {
+  font-size: larger;
+  color: #3a7ca5;
+}
+
+p#trueOrFalseAnswerResult {
+  font-size: larger;
+  color: #3a7ca5;
 }
 
 #showTrivia {
   font-size: larger;
-  color: #ee2e31;
+  color: #3a7ca5;
   font-weight: 700;
 }
