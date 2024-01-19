@@ -72,7 +72,11 @@ function shuffleAnswersArray(answersArray) {
 
 function printError(response) {
   console.log(response);
-  document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia:`;
+  if (response.response_code == 5) {
+    document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia: Too many requests have occurred. Each IP can only access the API once every 5 seconds.`;
+    document.getElementById("trueOrFalse").setAttribute("class", "hidden");
+    document.getElementById("multipleChoice").setAttribute("class", "hidden");
+  }
 }
 
 window.addEventListener("load", function() {
