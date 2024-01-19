@@ -5,7 +5,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Trivia</h1>
+    <h1>Trivia!</h1>
+    <hr>
     <p>To search for trivia questions, simply select a topic that you are interested in, and then select "Search".</p>
     <p>You will then be asked a trivia question from the selected topic. Give it your best guess to see if you got it right! After you've answered, select "Next Question" to reload the page and get more trivia questions.</p>
     <form id="triviaQueryForm">
@@ -39,10 +40,12 @@
         Politics
       </label> -->
       <br>
+      <br>
       <button type="submit" class="btn-success" id="searchTrivia">Search</button>
     </form>
     <br>
     <div id="showTrivia"></div>
+    <br>
     <div class="hidden" id="trueOrFalse">
       <form id="trueFalseAnswerForm">
         <label>
@@ -52,6 +55,7 @@
         <label>
           <input type="radio" name="userAnswer" value="false"> False
         </label>
+        <br>
         <br>
         <button type="submit" id="submitTrueFalseAnswer">Submit</button>
       </form>
@@ -72,6 +76,7 @@
         <br>
         <input type="radio" name="multChoiceUserAnswer" id="optionFour">
         <label for="optionFour">Option 4</label>
+        <br>
         <br>
         <button type="submit" id="submitMultChoiceAnswer">Submit</button>
       </form>
