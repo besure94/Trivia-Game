@@ -22,6 +22,8 @@ Users are given a brief description of how to use the application, which they do
 
 ## Setup/Installation Requirements
 
+**Note: this application is still being worked on. To use the application, please use the `main` branch. The app is not yet working for the other branches.**
+
 * Select the green "Code" button, and clone this repository to your desktop.
 * In the terminal, go to your project folder and run the command `$ npm install` to install node_modules.
 * Run the command `$ npm run build` to bundle together JS files.
