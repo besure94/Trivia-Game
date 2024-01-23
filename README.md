@@ -30,7 +30,7 @@ Users are given a brief description of how to use the application, which they do
 ## Known Bugs
 
 * If the user selects "Submit" without selecting an answer, the "Submit" button is hidden, and the user has to then refresh the page to search for another question.
-* I want to allow a user to search for more than one question at a time, and tally their correct and incorrect answers.
+* I want to allow a user to search for more than one question at a time, and tally their correct and incorrect answers. Currently I cannot do this, as the page reloads after each answered question.
 
 ## License
 
