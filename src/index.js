@@ -15,8 +15,6 @@ function getTrivia(searchType) {
     url = `https://opentdb.com/api.php?amount=50&category=22&difficulty=easy`;
   } else if (searchType === "history") {
     url = `https://opentdb.com/api.php?amount=50&category=23&difficulty=easy`;
-  } else if (searchType === "politics") {
-    url = `https://opentdb.com/api.php?amount=50&category=24&difficulty=easy`;
   }
 
   request.addEventListener("loadend", function() {
