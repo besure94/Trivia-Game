@@ -7,82 +7,11 @@
   <div class="container">
     <h1>Trivia!</h1>
     <hr>
-    <p>To search for trivia questions, simply select a topic that you are interested in, and then select "Search".</p>
-    <p>You will then be asked a trivia question from the selected topic. Give it your best guess to see if you got it right! After you've answered, select "Next Question" to reload the page and get more trivia questions.</p>
-    <form id="triviaQueryForm">
-      <label>
-        <input type="radio" name="trivia" value="music">
-        Music
-      </label>
-      <br>
-      <label>
-        <input type="radio" name="trivia" value="film">
-        Film
-      </label>
-      <br>
-      <label>
-        <input type="radio" name="trivia" value="tv">
-        Television
-      </label>
-      <br>
-      <label>
-        <input type="radio" name="trivia" value="geography">
-        Geography
-      </label>
-      <br>
-      <label>
-        <input type="radio" name="trivia" value="history">
-        History
-      </label>
-      <br>
-      <br>
-      <button type="submit" class="btn-success" id="searchTrivia">Search</button>
+    <h3>Test out your knowledge of a wide variety of topics</h3>
+    <p>This application will present you with random trivia questions. Your correct and incorrect answers will be recorded. If you get at least 7 out of 10 right, you win!</p>
+    <form id="startGame">
+      <button type="submit" id="beginGame">Begin!</button>
     </form>
-    <br>
-    <div id="showTrivia"></div>
-    <br>
-    <div class="hidden" id="trueOrFalse">
-      <form id="trueFalseAnswerForm">
-        <label>
-          <input type="radio" name="userAnswer" value="true"> True
-        </label>
-        <br>
-        <label>
-          <input type="radio" name="userAnswer" value="false"> False
-        </label>
-        <br>
-        <br>
-        <button type="submit" id="submitTrueFalseAnswer">Submit</button>
-      </form>
-      <br>
-      <p id="trueOrFalseAnswerResult"></p>
-    </div>
-
-    <div class="hidden" id="multipleChoice">
-      <form id="multChoiceAnswerForm">
-        <input type="radio" name="multChoiceUserAnswer" id="optionOne">
-        <label for="optionOne">Option 1</label>
-        <br>
-        <input type="radio" name="multChoiceUserAnswer" id="optionTwo">
-        <label for="optionTwo">Option 2</label>
-        <br>
-        <input type="radio" name="multChoiceUserAnswer" id="optionThree">
-        <label for="optionThree">Option 3</label>
-        <br>
-        <input type="radio" name="multChoiceUserAnswer" id="optionFour">
-        <label for="optionFour">Option 4</label>
-        <br>
-        <br>
-        <button type="submit" id="submitMultChoiceAnswer">Submit</button>
-      </form>
-      <br>
-      <p id="multChoiceAnswerResult"></p>
-    </div>
-
-    <div id="resetButton" class="hidden">
-      <button type="submit" id="clear">Next Question</button>
-    </div>
-
   </div>
 </body>
 </html>
