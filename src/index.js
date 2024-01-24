@@ -18,6 +18,14 @@ function populateTriviaCards(response) {
   let triviaCardDiv = document.getElementById("triviaCards");
   triviaCardDiv.removeAttribute("class", "hidden");
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
+
+  const answersArray = randomTriviaQuestion.incorrect_answers.slice();
+  answersArray.push(randomTriviaQuestion.correct_answer);
+  shuffleAnswersArray(answersArray);
+}
+
+function shuffleAnswersArray(answersArray) {
+  answersArray.sort(() => Math.random() - 0.5);
 }
 
 window.addEventListener("load", function() {
