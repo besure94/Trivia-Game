@@ -38,6 +38,7 @@ p {
 
 #triviaCards {
   border: 2px solid #3a7ca5;
+  width: 25%;
 }
 
 #triviaQuestions {

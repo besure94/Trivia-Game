@@ -6,11 +6,11 @@ import OpenTriviaApi from './js/openTriviaApi';
 async function getTriviaQuestions() {
   let response = await OpenTriviaApi.getTriviaQuestions();
   if (response[0].response_code == 0) {
-    populateTriviaCards(response);
+    populateTriviaCard(response);
   }
 }
 
-function populateTriviaCards(response) {
+function populateTriviaCard(response) {
   const triviaQuestionKeys = response[0].results;
   const randomTriviaQuestion = triviaQuestionKeys[Math.floor(Math.random() * triviaQuestionKeys.length)];
   let triviaCardDiv = document.getElementById("triviaCards");
