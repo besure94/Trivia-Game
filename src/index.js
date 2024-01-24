@@ -6,10 +6,7 @@ import OpenTriviaApi from './js/openTriviaApi';
 async function getTriviaQuestions() {
   let response = await OpenTriviaApi.getTriviaQuestions();
   if (response[0].response_code == 0) {
-    // printTrivia(response);
     populateTriviaCards(response);
-  } else {
-    printError(response);
   }
 }
 
@@ -21,15 +18,6 @@ function populateTriviaCards(response) {
   let triviaCardDiv = document.getElementById("triviaCards");
   triviaCardDiv.removeAttribute("class", "hidden");
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
-}
-
-function printError(response) {
-  console.log(response);
-  if (response.response_code == 5) {
-    document.querySelector("#showTrivia").innerHTML = `There was an error accessing trivia: Too many requests have occurred. Each IP can only access the API once every 5 seconds.`;
-    document.getElementById("trueOrFalse").setAttribute("class", "hidden");
-    document.getElementById("multipleChoice").setAttribute("class", "hidden");
-  }
 }
 
 window.addEventListener("load", function() {
