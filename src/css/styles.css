@@ -13,6 +13,11 @@ h1 {
   font-weight: 900;
 }
 
+h3 {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
 }
@@ -28,7 +33,7 @@ label {
 
 p {
   color: #3a7ca5;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 p#multChoiceAnswerResult {
