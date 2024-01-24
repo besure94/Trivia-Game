@@ -36,18 +36,11 @@ p {
   font-weight: 500;
 }
 
-p#multChoiceAnswerResult {
-  font-size: larger;
-  color: #3a7ca5;
+#triviaCards {
+  border: 2px solid #3a7ca5;
 }
 
-p#trueOrFalseAnswerResult {
-  font-size: larger;
+#triviaQuestions {
   color: #3a7ca5;
-}
-
-#showTrivia {
-  font-size: larger;
-  color: #3a7ca5;
-  font-weight: 700;
+  font-weight: 500;
 }

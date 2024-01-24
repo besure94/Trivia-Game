@@ -5,22 +5,22 @@ import OpenTriviaApi from './js/openTriviaApi';
 
 async function getTriviaQuestions() {
   let response = await OpenTriviaApi.getTriviaQuestions();
-  console.log(response);
   if (response[0].response_code == 0) {
-    printTrivia(response);
+    // printTrivia(response);
+    populateTriviaCards(response);
   } else {
     printError(response);
   }
-  console.log(response[0].results);
 }
 
-function printTrivia(response) {
-  let triviaDiv = document.getElementById("triviaQuestions");
+function populateTriviaCards(response) {
+  console.log(response[0].results);
   const triviaQuestionKeys = response[0].results;
-  console.log(triviaQuestionKeys);
   const randomTriviaQuestion = triviaQuestionKeys[Math.floor(Math.random() * triviaQuestionKeys.length)];
   console.log(randomTriviaQuestion);
-  triviaDiv.innerHTML = randomTriviaQuestion.question;
+  let triviaCardDiv = document.getElementById("triviaCards");
+  triviaCardDiv.removeAttribute("class", "hidden");
+  triviaCardDiv.innerHTML = randomTriviaQuestion.question;
 }
 
 function printError(response) {
@@ -36,6 +36,5 @@ window.addEventListener("load", function() {
   document.querySelector("form#startGame").addEventListener("submit", function (event) {
     event.preventDefault();
     getTriviaQuestions();
-    // getTriviaQuestions().then(function())
   });
 });
