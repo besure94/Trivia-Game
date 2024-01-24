@@ -11,10 +11,8 @@ async function getTriviaQuestions() {
 }
 
 function populateTriviaCards(response) {
-  console.log(response[0].results);
   const triviaQuestionKeys = response[0].results;
   const randomTriviaQuestion = triviaQuestionKeys[Math.floor(Math.random() * triviaQuestionKeys.length)];
-  console.log(randomTriviaQuestion);
   let triviaCardDiv = document.getElementById("triviaCards");
   triviaCardDiv.removeAttribute("class", "hidden");
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
