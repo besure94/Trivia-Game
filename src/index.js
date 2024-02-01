@@ -20,6 +20,7 @@ function populateTriviaCard(response) {
   form.appendChild(document.createElement("br"));
   let button = document.createElement("button");
   button.textContent = "Guess!";
+  button.setAttribute("id", "guessAnswer");
   triviaCardDiv.appendChild(form);
   triviaCardDiv.appendChild(document.createElement("br"));
   triviaCardDiv.appendChild(button);
