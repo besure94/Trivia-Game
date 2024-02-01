@@ -37,13 +37,31 @@ function populateTriviaCard(response) {
 
     let label = document.createElement("label");
     label.appendChild(document.createTextNode(answersArray[i]));
-    console.log(radioButton);
-    console.log(label);
 
     form.appendChild(radioButton);
     form.appendChild(label);
     form.appendChild(document.createElement("br"));
   }
+
+  button.addEventListener("click", function() {
+    let guessedAnswer = document.querySelector('input[name="userAnswer"]:checked').value;
+    document.querySelector("div#triviaAnswer").innerText = "";
+    let answerDiv = document.createElement("div");
+    answerDiv.setAttribute("id", "result");
+    let correctAnswer = randomTriviaQuestion.correct_answer;
+    if (guessedAnswer == randomTriviaQuestion.correct_answer) {
+      answerDiv.innerText = `Correct! Nicely done!`;
+    } else if (guessedAnswer != randomTriviaQuestion.correct_answer) {
+      answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
+    } else if (guessedAnswer == null) {
+      answerDiv.innerText = `Please select an answer!`;
+    }
+    document.querySelector("div#triviaAnswer").appendChild(answerDiv);
+  });
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+  });
 }
 
 function shuffleAnswersArray(answersArray) {

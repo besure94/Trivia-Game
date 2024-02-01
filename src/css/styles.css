@@ -43,6 +43,12 @@ p {
   font-weight: 500;
 }
 
+#result {
+  text-align: flex;
+  color: #3a7ca5;
+  font-weight: 500;
+}
+
 #triviaCards {
   border: 2px solid white;
   width: 25%;
