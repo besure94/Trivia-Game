@@ -37,11 +37,11 @@ p {
 }
 
 #triviaCards {
-  border: 2px solid #3a7ca5;
+  border: 2px solid white;
   width: 25%;
-}
-
-#triviaQuestions {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
   color: #3a7ca5;
   font-weight: 500;
 }

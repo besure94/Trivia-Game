@@ -16,10 +16,33 @@ function populateTriviaCard(response) {
   let triviaCardDiv = document.getElementById("triviaCards");
   triviaCardDiv.removeAttribute("class", "hidden");
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
+  let form = document.createElement("form");
+  form.appendChild(document.createElement("br"));
+  let button = document.createElement("button");
+  button.textContent = "Guess!";
+  triviaCardDiv.appendChild(form);
+  triviaCardDiv.appendChild(document.createElement("br"));
+  triviaCardDiv.appendChild(button);
 
   const answersArray = randomTriviaQuestion.incorrect_answers.slice();
   answersArray.push(randomTriviaQuestion.correct_answer);
   shuffleAnswersArray(answersArray);
+
+  for (let i = 0; i < answersArray.length; i++) {
+    let radioButton = document.createElement("input");
+    radioButton.type = "radio";
+    radioButton.name = "userAnswer";
+    radioButton.value = answersArray[i];
+
+    let label = document.createElement("label");
+    label.appendChild(document.createTextNode(answersArray[i]));
+    console.log(radioButton);
+    console.log(label);
+
+    form.appendChild(radioButton);
+    form.appendChild(label);
+    form.appendChild(document.createElement("br"));
+  }
 }
 
 function shuffleAnswersArray(answersArray) {
