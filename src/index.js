@@ -57,10 +57,8 @@ function createTriviaCardAndGuessAnswer(response) {
       answerDiv.innerText = `Please select an answer!`;
     }
     document.querySelector("div#triviaAnswer").appendChild(answerDiv);
-  });
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    // button.setAttribute("class", "hidden");
+    document.getElementById("triviaCards").setAttribute("class", "hidden");
   });
 }
 
