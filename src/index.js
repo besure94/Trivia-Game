@@ -2,6 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import OpenTriviaApi from './js/openTriviaApi';
+// import TriviaGame from './js/triviaGame';
 
 async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
@@ -105,5 +106,7 @@ window.addEventListener("load", function() {
     event.preventDefault();
     getTriviaQuestions();
     document.getElementById("beginGame").setAttribute("class", "hidden");
+    document.getElementById("gameInstructions").setAttribute("class", "hidden");
+    document.getElementById("scoreTally").removeAttribute("class", "hidden");
   });
 });

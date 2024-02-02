@@ -20,7 +20,12 @@ h1 {
   font-weight: 900;
 }
 
-h3 {
+h2 {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
+h4 {
   color: #3a7ca5;
   font-weight: 700;
 }
