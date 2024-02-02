@@ -1,6 +1,6 @@
 # Trivia!
 
-#### An application that allows a user to search for a trivia question by topic, and guess the answer.
+#### An application that allows a user to search for a trivia question by topic, and guess the answers.
 
 #### By Brian Scherner
 
@@ -18,11 +18,11 @@
 
 This application communicates with the [Open Trivia Database API](https://opentdb.com/login.php). It does not require an API key.
 
-Users are given a brief description of how to use the application, which they do by selecting a topic and then clicking "Search". They are then given a random trivia question from that topic, which is either a true/false or multiple choice question. Users then answer the question and press "Submit" to see if they answered it correctly. They are then given a prompt to select another question, at which point the page reloads and they can continue searching for trivia questions.
+Users are presented with a button called "Begin!", which will start the application when clicked. They are then given a trivia question from a randomly selected topic, which is either a true/false or multiple choice question. Users then answer the question and press "Guess!" to see if they answered it correctly. They are then shown a button called "Next Question!", which will query the API and display another question. Users can answer as many questions as they desire.
 
 ## Setup/Installation Requirements
 
-**Note: this application is still being worked on. To use the application, please use the `main` branch. The app is not yet working for the other branches.**
+**Note: this application is still being worked on. To use the application at its current functional state, please use the `main` branch**
 
 * Select the green "Code" button, and clone this repository to your desktop.
 * In the terminal, go to your project folder and run the command `$ npm install` to install node_modules.
@@ -31,8 +31,11 @@ Users are given a brief description of how to use the application, which they do
 
 ## Known Bugs
 
-* If the user selects "Submit" without selecting an answer, the "Submit" button is hidden, and the user has to then refresh the page to search for another question.
-* I want to allow a user to search for more than one question at a time, and tally their correct and incorrect answers. Currently I cannot do this, as the page reloads after each answered question.
+* Currently the user is not shown a message telling them to please select an answer if they do not select an answer and click "Guess!". Instead the form will just not submit.
+
+## Further Exploration
+
+My next goal is to add functionality to tally the users correct and incorrect answers, to make the application function more like a game.
 
 ## License
 
