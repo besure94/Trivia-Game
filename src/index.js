@@ -69,5 +69,6 @@ window.addEventListener("load", function() {
   document.querySelector("form#startGame").addEventListener("submit", function (event) {
     event.preventDefault();
     getTriviaQuestions();
+    document.getElementById("beginGame").setAttribute("class", "hidden");
   });
 });
