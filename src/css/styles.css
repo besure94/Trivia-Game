@@ -57,11 +57,6 @@ p {
 }
 
 #triviaCards {
-  border: 2px solid white;
-  width: 25%;
-  padding-left: 5px;
-  padding-right: 5px;
-  text-align: flex;
   color: #3a7ca5;
   font-weight: 500;
 }
