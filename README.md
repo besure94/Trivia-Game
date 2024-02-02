@@ -1,4 +1,4 @@
-# Trivia!
+# Trivia Questions!
 
 #### An application that allows a user to search for a trivia question by topic, and guess the answers.
 
