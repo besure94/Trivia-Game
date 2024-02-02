@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import OpenTriviaApi from './js/openTriviaApi';
-// import TriviaGame from './js/triviaGame';
+import TriviaGame from './js/triviaGame';
 
 async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
@@ -61,7 +61,11 @@ function createTriviaCardAndGuessAnswer(response) {
     answerDiv.setAttribute("id", "result");
     let correctAnswer = randomTriviaQuestion.correct_answer;
     if (guessedAnswer == randomTriviaQuestion.correct_answer) {
+      // FIGURE OUT HOW TO TALLY CORRECT/INCORRECT ANSWERS AND UPDATE SCORES //
+      TriviaGame.updateAnswersTally();
+      console.log(TriviaGame.correctAnswers);
       answerDiv.innerText = `Correct! Nicely done!`;
+      document.getElementById("correctAnswers").innerText = TriviaGame.correctAnswers;
     } else if (guessedAnswer != randomTriviaQuestion.correct_answer) {
       answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
     } else if (guessedAnswer == null) {
