@@ -58,11 +58,27 @@ function createTriviaCardAndGuessAnswer(response) {
     }
     document.querySelector("div#triviaAnswer").appendChild(answerDiv);
     document.getElementById("triviaCards").setAttribute("class", "hidden");
+    getNextTriviaQuestion();
   });
 }
 
 function shuffleAnswersArray(answersArray) {
   answersArray.sort(() => Math.random() - 0.5);
+}
+
+function getNextTriviaQuestion() {
+  let nextQuestionButton = document.createElement("button");
+  nextQuestionButton.textContent = "Next Question!";
+  nextQuestionButton.setAttribute("id", "nextQuestion");
+  document.getElementById("triviaAnswer").appendChild(document.createElement("br"));
+  document.getElementById("triviaAnswer").appendChild(nextQuestionButton);
+
+  nextQuestionButton.addEventListener("click", function() {
+    getTriviaQuestions();
+    document.getElementById("triviaAnswer").setAttribute("class", "hidden");
+    nextQuestionButton.setAttribute("class", "hidden");
+    document.getElementById("triviaCards").removeAttribute("class", "hidden");
+  });
 }
 
 window.addEventListener("load", function() {

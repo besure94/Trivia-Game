@@ -38,6 +38,13 @@ label {
   font-weight: 600;
 }
 
+#nextQuestion {
+  background-color: #3a7ca5;
+  color: black;
+  font-weight: 900;
+  margin: 5px;
+}
+
 p {
   color: #3a7ca5;
   font-weight: 500;
