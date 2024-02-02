@@ -58,6 +58,7 @@ function createTriviaCardAndGuessAnswer(response) {
     }
     document.querySelector("div#triviaAnswer").appendChild(answerDiv);
     document.getElementById("triviaCards").setAttribute("class", "hidden");
+    document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
   });
 }
