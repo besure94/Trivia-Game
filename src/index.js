@@ -93,10 +93,12 @@ function createTriviaCardAndGuessAnswers(response) {
   });
 }
 
+// declare game to be over if no more questions are remaining
 function gameOver() {
   if (triviaGameObject.questionsRemaining == 0) {
     document.getElementById("triviaCards").setAttribute("class", "hidden");
     document.getElementById("triviaAnswer").setAttribute("class", "hidden");
+    document.getElementById("scoreTally").setAttribute("class", "hidden");
     document.getElementById("gameOver").innerText = "Game Over!";
   }
 }
