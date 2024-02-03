@@ -4,15 +4,18 @@ import './css/styles.css';
 import OpenTriviaApi from './js/openTriviaApi';
 import TriviaGame from './js/triviaGame';
 
+// declare game object to keep track of score
+const triviaGameObject = new TriviaGame();
+
 async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
   let response = await OpenTriviaApi.getTriviaQuestions();
   if (response[0].response_code == 0) {
-    createTriviaCardAndGuessAnswer(response);
+    createTriviaCardAndGuessAnswers(response);
   }
 }
 
-function createTriviaCardAndGuessAnswer(response) {
+function createTriviaCardAndGuessAnswers(response) {
   // takes in the question results from the API response and stores them in variable
   const triviaQuestionKeys = response[0].results;
   // creates method to shuffle the trivia questions and store them in variable
@@ -61,19 +64,24 @@ function createTriviaCardAndGuessAnswer(response) {
     answerDiv.setAttribute("id", "result");
     let correctAnswer = randomTriviaQuestion.correct_answer;
     if (guessedAnswer == randomTriviaQuestion.correct_answer) {
-      // FIGURE OUT HOW TO TALLY CORRECT/INCORRECT ANSWERS AND UPDATE SCORES //
-      TriviaGame.updateAnswersTally();
-      console.log(TriviaGame.correctAnswers);
+      // if user guesses correctly, update correct answers tally //
+      triviaGameObject.correctAnswers += 1;
       answerDiv.innerText = `Correct! Nicely done!`;
-      document.getElementById("correctAnswers").innerText = TriviaGame.correctAnswers;
     } else if (guessedAnswer != randomTriviaQuestion.correct_answer) {
+      // if user guesses incorrectly, update incorrect answers tally
+      triviaGameObject.incorrectAnswers += 1;
       answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
-    } else if (guessedAnswer == null) {
+    } else {
       answerDiv.innerText = `Please select an answer!`;
     }
     // the answer result is appended to the answerDiv
     // the trivia card is then hidden
     // a function that displays the next trivia question is called
+    // update the scores in the DOM and keep track of questions remaining
+    triviaGameObject.questionsRemaining -= 1;
+    document.getElementById("correctAnswers").innerText = triviaGameObject.correctAnswers;
+    document.getElementById("incorrectAnswers").innerText = triviaGameObject.incorrectAnswers;
+    document.getElementById("questionsRemaining").innerText = triviaGameObject.questionsRemaining;
     document.querySelector("div#triviaAnswer").appendChild(answerDiv);
     document.getElementById("triviaCards").setAttribute("class", "hidden");
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");

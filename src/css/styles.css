@@ -30,6 +30,11 @@ h4 {
   font-weight: 700;
 }
 
+h5 {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
 }
