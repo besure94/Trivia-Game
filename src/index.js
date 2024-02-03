@@ -88,6 +88,7 @@ function playTriviaGame(response) {
     getNextTriviaQuestion();
 
     // declare game to be over if no more questions are remaining
+    // displays the last answer result to user
     let lastAnswerDiv = document.createElement("div");
     lastAnswerDiv.setAttribute("id", "lastAnswer");
     document.querySelector("div#finalAnswerResult").appendChild(lastAnswerDiv);
@@ -101,6 +102,7 @@ function playTriviaGame(response) {
   });
 }
 
+// this function ends the game and analyzes the users answers
 function gameOver() {
   document.getElementById("triviaCards").setAttribute("class", "hidden");
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
@@ -109,6 +111,7 @@ function gameOver() {
   analyzeScores(triviaGameObject);
 }
 
+// this function analyzes the users answer results and displays a different message depending on how well they did
 function analyzeScores(triviaGameObject) {
   let scoreNumbers = document.getElementById("scoreNumbers");
   let scoreAnalysis = document.getElementById("scoreAnalysis");
