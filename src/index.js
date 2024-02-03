@@ -86,7 +86,19 @@ function createTriviaCardAndGuessAnswers(response) {
     document.getElementById("triviaCards").setAttribute("class", "hidden");
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
+
+    if (triviaGameObject.questionsRemaining == 0) {
+      gameOver();
+    }
   });
+}
+
+function gameOver() {
+  if (triviaGameObject.questionsRemaining == 0) {
+    document.getElementById("triviaCards").setAttribute("class", "hidden");
+    document.getElementById("triviaAnswer").setAttribute("class", "hidden");
+    document.getElementById("gameOver").innerText = "Game Over!";
+  }
 }
 
 // shuffles the array of answers so that the order is different every time
