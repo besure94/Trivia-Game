@@ -132,5 +132,6 @@ window.addEventListener("load", function() {
     document.getElementById("beginGame").setAttribute("class", "hidden");
     document.getElementById("gameInstructions").setAttribute("class", "hidden");
     document.getElementById("scoreTally").removeAttribute("class", "hidden");
+    document.getElementById("appHeader").setAttribute("class", "hidden");
   });
 });
