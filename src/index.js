@@ -92,11 +92,11 @@ function playTriviaGame(response) {
     lastAnswerDiv.setAttribute("id", "lastAnswer");
     document.querySelector("div#finalAnswerResult").appendChild(lastAnswerDiv);
     if (triviaGameObject.questionsRemaining == 0 && guessedAnswer == randomTriviaQuestion.correct_answer) {
+      gameOver();
       lastAnswerDiv.innerText = "Your last answer was correct!";
-      gameOver();
     } else if (triviaGameObject.questionsRemaining == 0 && guessedAnswer != randomTriviaQuestion.correct_answer) {
-      lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was ${correctAnswer}.`;
       gameOver();
+      lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was ${correctAnswer}.`;
     }
   });
 }
@@ -106,6 +106,23 @@ function gameOver() {
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
   document.getElementById("scoreTally").setAttribute("class", "hidden");
   document.getElementById("gameOver").innerText = "Game Over! Thanks for playing!";
+  analyzeScores(triviaGameObject);
+}
+
+function analyzeScores(triviaGameObject) {
+  let scoreNumbers = document.getElementById("scoreNumbers");
+  let scoreAnalysis = document.getElementById("scoreAnalysis");
+  let correctAnswersTotal = triviaGameObject.correctAnswers;
+  let incorrectAnswersTotal = triviaGameObject.incorrectAnswers;
+  scoreNumbers.innerText = `Correct answers: ${correctAnswersTotal}\n Incorrect answers: ${incorrectAnswersTotal}`;
+
+  if (correctAnswersTotal > incorrectAnswersTotal) {
+    scoreAnalysis.innerText = "You got more answers right than you did wrong! Nice work!";
+  } else if (correctAnswersTotal == incorrectAnswersTotal) {
+    scoreAnalysis.innerText = "You got an equal number of right and wrong answers! Not bad!";
+  } else if (correctAnswersTotal < incorrectAnswersTotal) {
+    scoreAnalysis.innerText = "You got more answers wrong than you did right! Better luck next time!";
+  }
 }
 
 // shuffles the array of answers so that the order is different every time

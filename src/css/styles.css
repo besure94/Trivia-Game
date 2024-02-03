@@ -77,6 +77,16 @@ p {
   font-weight: 500;
 }
 
+#scoreNumbers {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
+#scoreAnalysis {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
 #triviaCards {
   color: #3a7ca5;
   font-weight: 500;
