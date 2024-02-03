@@ -11,11 +11,11 @@ async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
   let response = await OpenTriviaApi.getTriviaQuestions();
   if (response[0].response_code == 0) {
-    createTriviaCardAndGuessAnswers(response);
+    playTriviaGame(response);
   }
 }
 
-function createTriviaCardAndGuessAnswers(response) {
+function playTriviaGame(response) {
   // takes in the question results from the API response and stores them in variable
   const triviaQuestionKeys = response[0].results;
   // creates method to shuffle the trivia questions and store them in variable
@@ -87,8 +87,17 @@ function createTriviaCardAndGuessAnswers(response) {
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
 
+    console.log(triviaGameObject);
     // declare game to be over if no more questions are remaining
-    if (triviaGameObject.questionsRemaining == 0) {
+    let lastAnswerDiv = document.createElement("div");
+    lastAnswerDiv.setAttribute("id", "lastAnswer");
+    document.querySelector("div#finalAnswerResult").appendChild(lastAnswerDiv);
+    console.log(lastAnswerDiv);
+    if (triviaGameObject.questionsRemaining == 0 && guessedAnswer == randomTriviaQuestion.correct_answer) {
+      lastAnswerDiv.innerText = "Your last answer was correct!";
+      gameOver();
+    } else if (triviaGameObject.questionsRemaining == 0 && guessedAnswer != randomTriviaQuestion.correct_answer) {
+      lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was ${correctAnswer}.`;
       gameOver();
     }
   });
@@ -98,7 +107,7 @@ function gameOver() {
   document.getElementById("triviaCards").setAttribute("class", "hidden");
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
   document.getElementById("scoreTally").setAttribute("class", "hidden");
-  document.getElementById("gameOver").innerText = "Game Over!";
+  document.getElementById("gameOver").innerText = "Game Over! Thanks for playing!";
 }
 
 // shuffles the array of answers so that the order is different every time

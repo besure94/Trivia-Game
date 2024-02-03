@@ -8,6 +8,11 @@ body {
 	background-color: black;
 }
 
+#finalAnswerResult {
+  color: #3a7ca5;
+  font-weight: 700;
+}
+
 #gameOver {
   color: #3a7ca5;
   font-weight: 900;
