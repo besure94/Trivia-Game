@@ -87,20 +87,18 @@ function createTriviaCardAndGuessAnswers(response) {
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
 
+    // declare game to be over if no more questions are remaining
     if (triviaGameObject.questionsRemaining == 0) {
       gameOver();
     }
   });
 }
 
-// declare game to be over if no more questions are remaining
 function gameOver() {
-  if (triviaGameObject.questionsRemaining == 0) {
-    document.getElementById("triviaCards").setAttribute("class", "hidden");
-    document.getElementById("triviaAnswer").setAttribute("class", "hidden");
-    document.getElementById("scoreTally").setAttribute("class", "hidden");
-    document.getElementById("gameOver").innerText = "Game Over!";
-  }
+  document.getElementById("triviaCards").setAttribute("class", "hidden");
+  document.getElementById("triviaAnswer").setAttribute("class", "hidden");
+  document.getElementById("scoreTally").setAttribute("class", "hidden");
+  document.getElementById("gameOver").innerText = "Game Over!";
 }
 
 // shuffles the array of answers so that the order is different every time
