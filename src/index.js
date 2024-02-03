@@ -87,12 +87,10 @@ function playTriviaGame(response) {
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
 
-    console.log(triviaGameObject);
     // declare game to be over if no more questions are remaining
     let lastAnswerDiv = document.createElement("div");
     lastAnswerDiv.setAttribute("id", "lastAnswer");
     document.querySelector("div#finalAnswerResult").appendChild(lastAnswerDiv);
-    console.log(lastAnswerDiv);
     if (triviaGameObject.questionsRemaining == 0 && guessedAnswer == randomTriviaQuestion.correct_answer) {
       lastAnswerDiv.innerText = "Your last answer was correct!";
       gameOver();
