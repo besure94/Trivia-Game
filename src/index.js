@@ -103,7 +103,7 @@ function playTriviaGame(response) {
   });
 }
 
-// this function ends the game and analyzes the users answers
+// this function ends the game, analyzes the users answers, and lets the user officially quit the game
 function gameOver() {
   document.getElementById("triviaCards").setAttribute("class", "hidden");
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
@@ -114,6 +114,7 @@ function gameOver() {
   quitGame();
 }
 
+// end the game after it is over
 function quitGame() {
   let quitButton = document.createElement("button");
   quitButton.textContent = "Quit";
