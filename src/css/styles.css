@@ -71,6 +71,12 @@ p {
   font-weight: 500;
 }
 
+#quitButton {
+  background-color: #3a7ca5;
+  color: black;
+  font-weight: 900;
+}
+
 #result {
   text-align: flex;
   color: #3a7ca5;

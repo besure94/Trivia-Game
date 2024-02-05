@@ -110,6 +110,19 @@ function gameOver() {
   document.getElementById("scoreTally").setAttribute("class", "hidden");
   document.getElementById("gameOver").innerText = "Game Over! Thanks for playing!";
   analyzeScores(triviaGameObject);
+  document.getElementById("quitGame").appendChild(document.createElement("br"));
+  quitGame();
+}
+
+function quitGame() {
+  let quitButton = document.createElement("button");
+  quitButton.textContent = "Quit";
+  quitButton.setAttribute("id", "quitButton");
+  let quitGameDiv = document.getElementById("quitGame");
+  quitGameDiv.appendChild(quitButton);
+  quitButton.addEventListener("click", function() {
+    window.location.reload();
+  });
 }
 
 // this function analyzes the users answer results and displays a different message depending on how well they did
