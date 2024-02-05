@@ -154,11 +154,11 @@ function analyzeScores(triviaGameObject) {
   scoreNumbers.innerText = `Correct answers: ${correctAnswersTotal}\n Incorrect answers: ${incorrectAnswersTotal}`;
 
   if (correctAnswersTotal > incorrectAnswersTotal) {
-    scoreAnalysis.innerText = "You got more answers right than you did wrong! Nice work!";
+    scoreAnalysis.innerText = "You got more right answers than wrong! Nice work!";
   } else if (correctAnswersTotal == incorrectAnswersTotal) {
     scoreAnalysis.innerText = "You got an equal number of right and wrong answers! Not bad!";
   } else if (correctAnswersTotal < incorrectAnswersTotal) {
-    scoreAnalysis.innerText = "You got more answers wrong than you did right! Better luck next time!";
+    scoreAnalysis.innerText = "You got more wrong answers than right! Better luck next time!";
   }
 }
 
