@@ -63,14 +63,15 @@ function playTriviaGame(response) {
     let answerDiv = document.createElement("div");
     answerDiv.setAttribute("id", "result");
     let correctAnswer = randomTriviaQuestion.correct_answer;
-    if (guessedAnswer == randomTriviaQuestion.correct_answer) {
+    if (guessedAnswer == correctAnswer) {
       // if user guesses correctly, update correct answers tally //
       triviaGameObject.correctAnswers += 1;
       answerDiv.innerText = `Correct! Nicely done!`;
-    } else if (guessedAnswer != randomTriviaQuestion.correct_answer) {
+    } else if (guessedAnswer != correctAnswer) {
       // if user guesses incorrectly, update incorrect answers tally
       triviaGameObject.incorrectAnswers += 1;
       answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
+      // ** Fix this logic in condition ** //
     } else {
       answerDiv.innerText = `Please select an answer!`;
     }
