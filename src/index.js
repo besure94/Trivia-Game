@@ -93,10 +93,10 @@ function playTriviaGame(response) {
     let lastAnswerDiv = document.createElement("div");
     lastAnswerDiv.setAttribute("id", "lastAnswer");
     document.querySelector("div#finalAnswerResult").appendChild(lastAnswerDiv);
-    if (triviaGameObject.questionsRemaining == 0 && guessedAnswer == randomTriviaQuestion.correct_answer) {
+    if (triviaGameObject.questionsRemaining == 0 && guessedAnswer == correctAnswer) {
       gameOver();
       lastAnswerDiv.innerText = "Your last answer was correct!";
-    } else if (triviaGameObject.questionsRemaining == 0 && guessedAnswer != randomTriviaQuestion.correct_answer) {
+    } else if (triviaGameObject.questionsRemaining == 0 && guessedAnswer != correctAnswer) {
       gameOver();
       lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was ${correctAnswer}.`;
     }
