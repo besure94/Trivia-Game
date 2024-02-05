@@ -93,9 +93,6 @@ function playTriviaGame() {
       // if user guesses incorrectly, update incorrect answers tally and display message
       triviaGameObject.incorrectAnswers += 1;
       answerDiv.innerText = `Incorrect! The correct answer is "${correctAnswer}".`;
-      // ** Fix this logic in condition ** //
-    } else {
-      answerDiv.innerText = `Please select an answer!`;
     }
     // the answer result is appended to the answerDiv
     // the trivia question and answers are then hidden
