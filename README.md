@@ -16,7 +16,7 @@
 
 ## Description
 
-This application communicates with the [Open Trivia Database API](https://opentdb.com/login.php). It does not require an API key. If you want to change queries for the number of trivia questions, types of categories, difficulty levels, or types of questions, please follow the API documentation available on the Open Trivia Database API website. Replace the URL on line 5 of `openTriviaApi.js` with the URL you have created.
+This application communicates with the [Open Trivia Database API](https://opentdb.com/login.php). It does not require an API key. If you want to change queries for the number of trivia questions, types of categories, difficulty levels, or types of questions, please follow the API documentation available on the Open Trivia Database API website. Replace the URL on line 6 of `openTriviaApi.js` with the URL you have created.
 
 Users are presented with a button called "Play!", which will start the application when clicked. They are then given a trivia question from a randomly selected topic, which is either a true/false or multiple choice question. Users then answer the question and press "Guess!" to see if they answered it correctly. Their correct and incorrect answers are recorded and shown to them, as well as the number of remaining questions. They are then shown a button called "Next Question!", which will return another question. Once 10 questions have been answered, the game ends.
 
