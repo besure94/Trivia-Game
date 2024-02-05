@@ -4,22 +4,25 @@ import './css/styles.css';
 import OpenTriviaApi from './js/openTriviaApi';
 import TriviaGame from './js/triviaGame';
 
-// declare game object to keep track of score
+// declare global variable for game object to keep track of score
 const triviaGameObject = new TriviaGame();
+// declare global variable to store API data
+let openTriviaApiData = null;
 
 async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
   let response = await OpenTriviaApi.getTriviaQuestions();
   if (response[0].response_code == 0) {
-    playTriviaGame(response);
+    openTriviaApiData = response;
+    playTriviaGame();
   }
 }
 
-function playTriviaGame(response) {
+function playTriviaGame() {
   // takes in the question results from the API response and stores them in variable
-  const triviaQuestionKeys = response[0].results;
+  const triviaQuestions = openTriviaApiData[0].results;
   // creates method to shuffle the trivia questions and store them in variable
-  const randomTriviaQuestion = triviaQuestionKeys[Math.floor(Math.random() * triviaQuestionKeys.length)];
+  const randomTriviaQuestion = triviaQuestions[Math.floor(Math.random() * triviaQuestions.length)];
   // removes hidden DIV and displays trivia question
   let triviaCardDiv = document.getElementById("triviaCards");
   triviaCardDiv.removeAttribute("class", "hidden");
@@ -34,10 +37,10 @@ function playTriviaGame(response) {
   triviaCardDiv.appendChild(document.createElement("br"));
   triviaCardDiv.appendChild(button);
 
-  // extracts incorrect answers from their array, and combines them with the correct answer in a new array
+  // extracts incorrect answers from their array inside the API response, and combines them with the correct answer in a new array
   const answersArray = randomTriviaQuestion.incorrect_answers.slice();
   answersArray.push(randomTriviaQuestion.correct_answer);
-  // shuffles the answers by calling shuffelAnswersArray function, so that their order will be different every time
+  // shuffles the answers by calling shuffleAnswersArray function, so that their order will be different every time
   shuffleAnswersArray(answersArray);
 
   // dynamically create radio buttons and append the values of the answersArray to each radio button
@@ -64,11 +67,11 @@ function playTriviaGame(response) {
     answerDiv.setAttribute("id", "result");
     let correctAnswer = randomTriviaQuestion.correct_answer;
     if (guessedAnswer == correctAnswer) {
-      // if user guesses correctly, update correct answers tally //
+      // if user guesses correctly, update correct answers tally and display message
       triviaGameObject.correctAnswers += 1;
       answerDiv.innerText = `Correct! Nicely done!`;
     } else if (guessedAnswer != correctAnswer) {
-      // if user guesses incorrectly, update incorrect answers tally
+      // if user guesses incorrectly, update incorrect answers tally and display message
       triviaGameObject.incorrectAnswers += 1;
       answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
       // ** Fix this logic in condition ** //
@@ -76,7 +79,7 @@ function playTriviaGame(response) {
       answerDiv.innerText = `Please select an answer!`;
     }
     // the answer result is appended to the answerDiv
-    // the trivia card is then hidden
+    // the trivia question and answers are then hidden
     // a function that displays the next trivia question is called
     // update the scores in the DOM and keep track of questions remaining
     triviaGameObject.questionsRemaining -= 1;
@@ -88,7 +91,7 @@ function playTriviaGame(response) {
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
 
-    // declare game to be over if no more questions are remaining
+    // declares game to be over if no more questions are remaining by calling gameOver function
     // displays the last answer result to user
     let lastAnswerDiv = document.createElement("div");
     lastAnswerDiv.setAttribute("id", "lastAnswer");
@@ -114,7 +117,7 @@ function gameOver() {
   quitGame();
 }
 
-// end the game after it is over
+// end the game and refresh the page to play again
 function quitGame() {
   let quitButton = document.createElement("button");
   quitButton.textContent = "Quit";
@@ -157,9 +160,9 @@ function getNextTriviaQuestion() {
   document.getElementById("triviaAnswer").appendChild(nextQuestionButton);
 
   // when the "Next Question!" button is clicked, the previous trivia answer is hidden.
-  // the getTriviaQuestions is called to display a new trivia card, so the user can guess the answer
+  // the getTriviaQuestions is called to display a new trivia question, so the user can guess the answer
   nextQuestionButton.addEventListener("click", function() {
-    getTriviaQuestions();
+    playTriviaGame();
     document.getElementById("triviaAnswer").setAttribute("class", "hidden");
     nextQuestionButton.setAttribute("class", "hidden");
     document.getElementById("triviaCards").removeAttribute("class", "hidden");
@@ -167,7 +170,7 @@ function getNextTriviaQuestion() {
 }
 
 window.addEventListener("load", function() {
-  // user clicks "Begin!" button, which displays a trivia question by calling getTriviaQuestions, and then removes the button to be more user friendly
+  // user clicks "Play!" button, which displays a trivia question by calling getTriviaQuestions, then removes the HTML shown above, and replaces it with new HTML for the game
   document.querySelector("form#startGame").addEventListener("submit", function (event) {
     event.preventDefault();
     getTriviaQuestions();

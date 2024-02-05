@@ -1,3 +1,4 @@
+// this function makes the API call to the Open Trivia Database
 export default class OpenTriviaApi {
   static getTriviaQuestions() {
     return new Promise(function (resolve, reject) {
