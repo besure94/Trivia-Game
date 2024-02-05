@@ -11,10 +11,29 @@ let openTriviaApiData = null;
 
 async function getTriviaQuestions() {
   // app gets API call from OpenTriviaApi, and if successful, displays a trivia card where a user can guess an answer
+  // if API call is unsuccessful, call printError and display response code to user
   let response = await OpenTriviaApi.getTriviaQuestions();
+  openTriviaApiData = response;
   if (response[0].response_code == 0) {
-    openTriviaApiData = response;
     playTriviaGame();
+  } else {
+    printError();
+  }
+}
+
+function printError() {
+  document.getElementById("scoreTally").setAttribute("class", "hidden");
+  let apiError = document.getElementById("errorResponse");
+  if (openTriviaApiData[0].response_code == 1) {
+    apiError.innerText = `API Error - Code 1: No results could be returned. The API does not have enough questions for your query.`;
+  } else if (openTriviaApiData[0].response_code == 2) {
+    apiError.innerText = `API Error - Code 2: Contains an invalid parameter. The arguments passed in are not valid.`;
+  } else if (openTriviaApiData[0].response_code == 3) {
+    apiError.innerText = `API Error - Code 3: Token not found. Session token does not exist.`;
+  } else if (openTriviaApiData[0].response_code == 4) {
+    apiError.innerText = `API Error - Code 4: Token empty. Session token has returned all possible questions for the specified query. Reseeting the token is necessary.`;
+  } else if (openTriviaApiData[0].response_code == 5) {
+    apiError.innerText = `API Error - Code 5: Rate limit exceeded. Too many API requests have occurred. Each IP address can only access the API once every 5 seconds.`;
   }
 }
 
@@ -24,7 +43,7 @@ function playTriviaGame() {
   // creates method to shuffle the trivia questions and store them in variable
   const randomTriviaQuestion = triviaQuestions[Math.floor(Math.random() * triviaQuestions.length)];
   // removes hidden DIV and displays trivia question
-  let triviaCardDiv = document.getElementById("triviaCards");
+  let triviaCardDiv = document.getElementById("triviaQuestion");
   triviaCardDiv.removeAttribute("class", "hidden");
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
   // dynamically creates form with a button to guess the answer
@@ -73,7 +92,7 @@ function playTriviaGame() {
     } else if (guessedAnswer != correctAnswer) {
       // if user guesses incorrectly, update incorrect answers tally and display message
       triviaGameObject.incorrectAnswers += 1;
-      answerDiv.innerText = `Incorrect! The correct answer is ${correctAnswer}.`;
+      answerDiv.innerText = `Incorrect! The correct answer is "${correctAnswer}".`;
       // ** Fix this logic in condition ** //
     } else {
       answerDiv.innerText = `Please select an answer!`;
@@ -87,7 +106,7 @@ function playTriviaGame() {
     document.getElementById("incorrectAnswers").innerText = triviaGameObject.incorrectAnswers;
     document.getElementById("questionsRemaining").innerText = triviaGameObject.questionsRemaining;
     document.querySelector("div#triviaAnswer").appendChild(answerDiv);
-    document.getElementById("triviaCards").setAttribute("class", "hidden");
+    document.getElementById("triviaQuestion").setAttribute("class", "hidden");
     document.querySelector("div#triviaAnswer").removeAttribute("class", "hidden");
     getNextTriviaQuestion();
 
@@ -101,14 +120,14 @@ function playTriviaGame() {
       lastAnswerDiv.innerText = "Your last answer was correct!";
     } else if (triviaGameObject.questionsRemaining == 0 && guessedAnswer != correctAnswer) {
       gameOver();
-      lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was ${correctAnswer}.`;
+      lastAnswerDiv.innerText = `Your last answer was incorrect! The correct answer was "${correctAnswer}".`;
     }
   });
 }
 
 // this function ends the game, analyzes the users answers, and lets the user officially quit the game
 function gameOver() {
-  document.getElementById("triviaCards").setAttribute("class", "hidden");
+  document.getElementById("triviaQuestion").setAttribute("class", "hidden");
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
   document.getElementById("scoreTally").setAttribute("class", "hidden");
   document.getElementById("gameOver").innerText = "Game Over! Thanks for playing!";
@@ -165,7 +184,7 @@ function getNextTriviaQuestion() {
     playTriviaGame();
     document.getElementById("triviaAnswer").setAttribute("class", "hidden");
     nextQuestionButton.setAttribute("class", "hidden");
-    document.getElementById("triviaCards").removeAttribute("class", "hidden");
+    document.getElementById("triviaQuestion").removeAttribute("class", "hidden");
   });
 }
 
