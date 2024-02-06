@@ -30,12 +30,14 @@ Users are presented with a button called "Play!", which will start the applicati
 ## Known Bugs
 
 * Currently the user is not shown a message telling them to please select an answer if they do not select an answer and click "Guess!". Instead the form will just not submit.
-* There is not functionality to ensure that the user is not given the same question twice.
+* There is not yet functionality to ensure that the user is not given the same question twice during a game.
 
 ## Further Exploration
 
 * Add better CSS styling to application.
 * Eventually I would like to refactor the application to show the user multiple questions in the form of trivia cards, which they can choose from.
+* Add functionality to allow a user to play by selecting a difficulty of their choosing.
+* Could also allow a user to play by selecting a topic of their choosing.
 
 ## License
 
