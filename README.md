@@ -16,14 +16,14 @@
 
 ## Description
 
-** This application communicates with the [Open Trivia Database API](https://opentdb.com/login.php). It does not require an API key.** 
+**This application communicates with the [Open Trivia Database API](https://opentdb.com/login.php). It does not require an API key.** 
 
 Users are presented with a button called "Play!", which will start the application when clicked. They are then given a trivia question from a randomly selected topic, which is either a true/false or multiple choice question. Users then answer the question and press "Guess!" to see if they answered it correctly. Their correct and incorrect answers are recorded and shown to them, as well as the number of remaining questions. They are then shown a button called "Next Question!", which will return another question. Once 10 questions have been answered, the game ends.
 
 ## Setup/Installation Requirements
 
 #### Optional
-** Please note that you are not required to do this. You can also just use the URL that is already being used in the project. **
+**Please note that you are not required to do this. You can also just use the URL that is already being used in the project.**
 * Go to the [Open Trivia Database API](https://opentdb.com/login.php).
 * Navigate to the tab in the upper right hand corner that says `API`.
 * Here, you can select the number of questions, categories, difficulties, and type of questions you want to use, as well as the encoding type, which is explained in greater detail in the API documentation.
