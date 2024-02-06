@@ -31,9 +31,9 @@ Users are presented with a button called "Play!", which will start the applicati
 5. Copy the API URL located in the turqoise colored box, and paste it into line 6 of the `openTriviaApi.js` file, after the "=" symbol at `const url =`.
 6. `openTriviaApi.js` is located inside the `js` folder, inside of the `src` folder in the project's root folder `Trivia-Game`.
 7. Whatever URL you choose to generate will work for this game, provided it is entered correctly. Here is an example of how a URL would look if entered as instructed in steps 5 and 6:
-```json
+```
 const url = `https://opentdb.com/api.php?amount=10&category=14&difficulty=medium`;
-```json
+```
 
 #### Required
 
