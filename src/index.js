@@ -49,6 +49,7 @@ function playTriviaGame() {
   // dynamically creates form with a button to guess the answer
   let form = document.createElement("form");
   form.appendChild(document.createElement("br"));
+  form.classList.add("triviaForm");
   let button = document.createElement("button");
   button.textContent = "Guess!";
   button.setAttribute("id", "guessAnswer");
@@ -68,8 +69,10 @@ function playTriviaGame() {
     radioButton.type = "radio";
     radioButton.name = "userAnswer";
     radioButton.value = answersArray[i];
+    radioButton.classList.add("answerOptions");
 
     let label = document.createElement("label");
+    label.classList.add("answerOptions");
     label.appendChild(document.createTextNode(answersArray[i]));
 
     form.appendChild(radioButton);
@@ -190,7 +193,7 @@ window.addEventListener("load", function() {
   document.querySelector("form#startGame").addEventListener("submit", function (event) {
     event.preventDefault();
     getTriviaQuestions();
-    document.getElementById("beginGame").setAttribute("class", "hidden");
+    document.getElementById("startGame").setAttribute("class", "hidden");
     document.getElementById("gameInstructions").setAttribute("class", "hidden");
     document.getElementById("scoreTally").removeAttribute("class", "hidden");
     document.getElementById("appHeader").setAttribute("class", "hidden");
