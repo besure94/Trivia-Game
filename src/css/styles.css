@@ -1,5 +1,7 @@
 .answerOptions {
   color: #04a777;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
 }
 
 #beginGame {
@@ -27,6 +29,7 @@ body {
 #correctAnswers {
   color: #fb8b24;
   font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .triviaForm {
@@ -58,15 +61,15 @@ body {
 
 #guessAnswer {
   background-color: #d90368;
-  color: black;
+  color: #291720;
   font-weight: 900;
-  margin: 5px;
   text-align: center;
   margin: auto;
   display: flex;
   height: 50px;
   font-size: 30px;
   width: fit-content;
+  font-family: monospace;
 }
 
 h1 {
@@ -102,6 +105,7 @@ h5 {
   color: #04a777;
   font-weight: 700;
   font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .hidden {
@@ -115,6 +119,7 @@ hr {
 #incorrectAnswers {
   color: #fb8b24;
   font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 label {
@@ -143,6 +148,7 @@ p {
 #questionsRemaining {
   color: #fb8b24;
   font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #quitButton {
@@ -161,8 +167,9 @@ p {
 #result {
   text-align: flex;
   color: #04a777;
-  font-weight: 500;
-  font-size: 30px;
+  font-weight: 900;
+  font-size: 40px;
+  font-family: monospace;
 }
 
 #scoreNumbers {
@@ -191,7 +198,8 @@ p {
 
 #triviaQuestion {
   color: #d90368;
-  font-weight: 500;
+  font-weight: 900;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
+  font-family: monospace;
 }
