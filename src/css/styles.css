@@ -11,8 +11,9 @@
   margin: auto;
   display: flex;
   height: 3.5rem;
-  width: 5.75rem;
+  width: 6.3rem;
   font-size: 1.9rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -44,11 +45,11 @@ body {
   text-align: center;
 }
 
-.gameplayButtons {
+/* .gameplayButtons {
   margin-left: auto;
   margin-right: auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+} */
 
 #gameScore {
   color: #fb8b24;
@@ -58,12 +59,12 @@ body {
   background-color: #d90368;
   color: #291720;
   font-weight: 900;
-  text-align: center;
   margin: auto;
   display: flex;
-  height: 50px;
-  /* width: 15%; */
-  font-size: 30px;
+  height: 3.5rem;
+  width: 8rem;
+  font-size: 1.9rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
@@ -124,13 +125,12 @@ label {
   background-color: #d90368;
   color: black;
   font-weight: 900;
-  margin: 5px;
-  text-align: center;
   margin: auto;
   display: flex;
-  height: 50px;
-  font-size: 30px;
-  width: 15% fit-content;
+  height: 3.3rem;
+  font-size: 1.9rem;
+  width: 17rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 p {
