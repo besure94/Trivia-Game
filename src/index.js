@@ -48,13 +48,11 @@ function playTriviaGame() {
   triviaCardDiv.innerHTML = randomTriviaQuestion.question;
   // dynamically creates form with a button to guess the answer
   let form = document.createElement("form");
-  form.appendChild(document.createElement("br"));
   form.classList.add("triviaForm");
   let button = document.createElement("button");
   button.textContent = "Guess!";
   button.setAttribute("id", "guessAnswer");
   triviaCardDiv.appendChild(form);
-  triviaCardDiv.appendChild(document.createElement("br"));
   triviaCardDiv.appendChild(button);
 
   // extracts incorrect answers from their array inside the API response, and combines them with the correct answer in a new array
