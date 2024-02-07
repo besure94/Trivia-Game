@@ -149,12 +149,12 @@ p {
   color: black;
   font-weight: 900;
   margin: 5px;
-  text-align: center;
   margin: auto;
   display: flex;
-  height: 50px;
-  font-size: 30px;
-  width: 15% fit-content;
+  height: 3rem;
+  font-size: 1.75rem;
+  width: 5.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #result {
