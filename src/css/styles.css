@@ -8,32 +8,21 @@
   background-color: #d90368;
   color: #291720;
   font-weight: 900;
-  text-align: center;
   margin: auto;
   display: flex;
-  height: 50px;
-  width: 15%;
-  font-size: 30px;
+  height: 3.5rem;
+  width: 5.75rem;
+  font-size: 1.9rem;
 }
 
 body {
 	background-color: #291720;
 }
 
-.buttonText {
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 #correctAnswers {
   color: #fb8b24;
   font-size: 2vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.triviaForm {
-  text-align: center;
 }
 
 #errorResponse {
@@ -55,6 +44,12 @@ body {
   text-align: center;
 }
 
+.gameplayButtons {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 #gameScore {
   color: #fb8b24;
 }
@@ -67,9 +62,8 @@ body {
   margin: auto;
   display: flex;
   height: 50px;
+  /* width: 15%; */
   font-size: 30px;
-  width: fit-content;
-  font-family: monospace;
 }
 
 h1 {
@@ -129,14 +123,14 @@ label {
 #nextQuestion {
   background-color: #d90368;
   color: black;
-  font-weight: 800;
+  font-weight: 900;
   margin: 5px;
   text-align: center;
   margin: auto;
   display: flex;
   height: 50px;
   font-size: 30px;
-  width: fit-content;
+  width: 15% fit-content;
 }
 
 p {
@@ -160,7 +154,7 @@ p {
   display: flex;
   height: 50px;
   font-size: 30px;
-  width: fit-content;
+  width: 15% fit-content;
 }
 
 #result {
@@ -192,6 +186,10 @@ p {
 #triviaAnswer {
   color: #d90368;
   font-weight: 500;
+  text-align: center;
+}
+
+.triviaForm {
   text-align: center;
 }
 

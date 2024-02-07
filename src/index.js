@@ -50,6 +50,7 @@ function playTriviaGame() {
   let form = document.createElement("form");
   form.classList.add("triviaForm");
   let button = document.createElement("button");
+  button.classList.add("gameplayButtons");
   button.textContent = "Guess!";
   button.setAttribute("id", "guessAnswer");
   triviaCardDiv.appendChild(form);
@@ -137,6 +138,7 @@ function gameOver() {
 // end the game and refresh the page to play again
 function quitGame() {
   let quitButton = document.createElement("button");
+  quitButton.classList.add("gameplayButtons");
   quitButton.textContent = "Quit";
   quitButton.setAttribute("id", "quitButton");
   let quitGameDiv = document.getElementById("quitGame");
@@ -173,6 +175,7 @@ function shuffleAnswersArray(answersArray) {
 function getNextTriviaQuestion() {
   // creates a new button to get the next question and appends it to the DOM
   let nextQuestionButton = document.createElement("button");
+  nextQuestionButton.classList.add("gameplayButtons");
   nextQuestionButton.textContent = "Next Question!";
   nextQuestionButton.setAttribute("id", "nextQuestion");
   document.getElementById("triviaAnswer").appendChild(document.createElement("br"));
@@ -190,10 +193,9 @@ function getNextTriviaQuestion() {
 
 window.addEventListener("load", function() {
   // user clicks "Play!" button, which displays a trivia question by calling getTriviaQuestions, then removes the HTML shown above, and replaces it with new HTML for the game
-  document.querySelector("form#startGame").addEventListener("submit", function (event) {
-    event.preventDefault();
+  document.getElementById("beginGame").addEventListener("click", function () {
     getTriviaQuestions();
-    document.getElementById("startGame").setAttribute("class", "hidden");
+    document.getElementById("startGameButton").setAttribute("class", "hidden");
     document.getElementById("gameInstructions").setAttribute("class", "hidden");
     document.getElementById("scoreTally").removeAttribute("class", "hidden");
     document.getElementById("appHeader").setAttribute("class", "hidden");
