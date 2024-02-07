@@ -12,7 +12,7 @@
   margin: auto;
   display: flex;
   height: 50px;
-  width: fit-content;
+  width: 15%;
   font-size: 30px;
 }
 
@@ -61,16 +61,6 @@ body {
 
 #guessAnswer {
   background-color: #d90368;
-  color: black;
-  font-weight: 800;
-  margin: 5px;
-  text-align: center;
-  margin: auto;
-  display: flex;
-  height: 50px;
-  font-size: 30px;
-  width: fit-content;
-  /* background-color: #d90368;
   color: #291720;
   font-weight: 900;
   text-align: center;
@@ -79,7 +69,7 @@ body {
   height: 50px;
   font-size: 30px;
   width: fit-content;
-  font-family: monospace; */
+  font-family: monospace;
 }
 
 h1 {
