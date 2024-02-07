@@ -170,6 +170,8 @@ function shuffleAnswersArray(answersArray) {
   answersArray.sort(() => Math.random() - 0.5);
 }
 
+
+// retrieves another trivia question for the player
 function getNextTriviaQuestion() {
   // creates a new button to get the next question and appends it to the DOM
   let nextQuestionButton = document.createElement("button");
