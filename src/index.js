@@ -129,7 +129,7 @@ function gameOver() {
   document.getElementById("triviaQuestion").setAttribute("class", "hidden");
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
   document.getElementById("scoreTally").setAttribute("class", "hidden");
-  document.getElementById("gameOver").innerText = "Game Over! Thanks for playing!";
+  document.getElementById("gameOver").innerText = "Game Over!";
   analyzeScores(triviaGameObject);
   document.getElementById("quitGame").appendChild(document.createElement("br"));
   quitGame();

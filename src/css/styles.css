@@ -1,7 +1,7 @@
 .answerOptions {
   color: #04a777;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.5vw;
+  font-size: 1.25rem;
 }
 
 #beginGame {
@@ -10,7 +10,6 @@
   font-weight: 900;
   margin: auto;
   display: flex;
-  height: 3.5rem;
   width: 6.3rem;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -22,34 +21,29 @@ body {
 
 #correctAnswers {
   color: #fb8b24;
-  font-size: 2vw;
+  font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #errorResponse {
-  color: #3a7ca5;
-  font-weight: 500;
+  color: #04a777;
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
 #finalAnswerResult {
   color: #04a777;
   font-weight: 700;
   text-align: center;
-  font-size: 3vw;
+  font-size: 2.5rem;
 }
 
 #gameOver {
   color: #fb8b24;
   font-weight: 900;
-  font-size: 4.5vw;
+  font-size: 10rem;
   text-align: center;
 }
-
-/* .gameplayButtons {
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
 
 #gameScore {
   color: #fb8b24;
@@ -61,7 +55,6 @@ body {
   font-weight: 900;
   margin: auto;
   display: flex;
-  height: 3.5rem;
   width: 8rem;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -70,7 +63,7 @@ body {
 h1 {
   color: #04a777;
   font-family: monospace;
-  font-size: 6vw;
+  font-size: 6rem;
   text-align: center;
 }
 
@@ -79,26 +72,21 @@ h2 {
   font-weight: 700;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  font-size: 3vw;
+  font-size: 3rem;
 }
 
 h3 {
   font-family: monospace;
   color: #04a777;
   font-weight: 700;
-  font-size: 3vw;
+  font-size: 3rem;
   text-align: center;
-}
-
-h4 {
-  color: #3a7ca5;
-  font-weight: 700;
 }
 
 h5 {
   color: #04a777;
   font-weight: 700;
-  font-size: 2vw;
+  font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -112,13 +100,8 @@ hr {
 
 #incorrectAnswers {
   color: #fb8b24;
-  font-size: 2vw;
+  font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-label {
-  color: #3a7ca5;
-  font-weight: 600;
 }
 
 #nextQuestion {
@@ -127,20 +110,14 @@ label {
   font-weight: 900;
   margin: auto;
   display: flex;
-  height: 3.3rem;
   font-size: 1.9rem;
   width: 17rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-p {
-  color: #d90368;
-  font-weight: 500;
-}
-
 #questionsRemaining {
   color: #fb8b24;
-  font-size: 2vw;
+  font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -151,7 +128,6 @@ p {
   margin: 5px;
   margin: auto;
   display: flex;
-  height: 3rem;
   font-size: 1.75rem;
   width: 5.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -161,7 +137,7 @@ p {
   text-align: flex;
   color: #04a777;
   font-weight: 900;
-  font-size: 2.5vw;
+  font-size: 2.5rem;
   font-family: monospace;
 }
 
@@ -169,14 +145,14 @@ p {
   color: #d90368;
   font-weight: 700;
   text-align: center;
-  font-size: 3vw;
+  font-size: 3rem;
 }
 
 #scoreAnalysis {
   color: #04a777;
   font-weight: 700;
   text-align: center;
-  font-size: 3vw;
+  font-size: 2.5rem;
 }
 
 #scoreTally {
@@ -197,6 +173,6 @@ p {
   color: #d90368;
   font-weight: 900;
   text-align: center;
-  font-size: 2vw;
+  font-size: 2rem;
   font-family: monospace;
 }
