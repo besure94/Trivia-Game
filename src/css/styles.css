@@ -10,7 +10,6 @@
   font-weight: 900;
   margin: auto;
   display: flex;
-  width: 6.3rem;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -55,7 +54,6 @@ body {
   font-weight: 900;
   margin: auto;
   display: flex;
-  width: 8rem;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -111,7 +109,6 @@ hr {
   margin: auto;
   display: flex;
   font-size: 1.9rem;
-  width: 17rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -129,7 +126,6 @@ hr {
   margin: auto;
   display: flex;
   font-size: 1.75rem;
-  width: 5.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
