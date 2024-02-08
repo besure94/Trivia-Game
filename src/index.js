@@ -82,6 +82,7 @@ function playTriviaGame() {
   // user clicks "Guess!" button
   // answer is then evaluated, and displays a message stating whether it is correct or incorrect
   button.addEventListener("click", function() {
+    document.getElementById("scoreTally").removeAttribute("class", "hidden");
     let guessedAnswer = document.querySelector('input[name="userAnswer"]:checked').value;
     document.querySelector("div#triviaAnswer").innerText = "";
     let answerDiv = document.createElement("div");
@@ -197,7 +198,6 @@ window.addEventListener("load", function() {
     getTriviaQuestions();
     document.getElementById("startGameButton").setAttribute("class", "hidden");
     document.getElementById("gameInstructions").setAttribute("class", "hidden");
-    document.getElementById("scoreTally").removeAttribute("class", "hidden");
     document.getElementById("appHeader").setAttribute("class", "hidden");
   });
 });
