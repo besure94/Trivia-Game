@@ -22,8 +22,6 @@ Users are presented with a button called "Play!", which will start the applicati
 
 ## Setup/Installation Requirements
 
-**As this application is still being updated, please use the `enhanced-css-styling` branch to play the game in better style.**
-
 #### Optional
 **Please note that you are not required to do this. You can also just use the URL that is already being used in the project.**
 1. Go to the [Open Trivia Database API](https://opentdb.com/login.php).
@@ -53,7 +51,6 @@ const url = `https://opentdb.com/api.php?amount=10&category=14&difficulty=medium
 ## Further Exploration
 
 * Add session tokens to application.
-* Add better CSS styling to application.
 * Eventually I would like to refactor the application to show the user multiple questions in the form of trivia cards, which they can choose from.
 * Add UI (User Interface) functionality to allow a user to play by selecting a difficulty of their choosing.
 * Could also allow a user to play by selecting a topic of their choosing in the UI.
