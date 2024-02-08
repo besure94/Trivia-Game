@@ -131,7 +131,7 @@ function gameOver() {
   document.getElementById("triviaAnswer").setAttribute("class", "hidden");
   document.getElementById("scoreTally").setAttribute("class", "hidden");
   document.getElementById("gameOver").innerText = "Game Over!";
-  analyzeScores(triviaGameObject);
+  calculateScores(triviaGameObject);
   document.getElementById("quitGame").appendChild(document.createElement("br"));
   quitGame();
 }
@@ -149,28 +149,22 @@ function quitGame() {
   });
 }
 
-// this function analyzes the users answer results and displays a different message depending on how well they did
-function analyzeScores(triviaGameObject) {
+// this function calculates the users score and returns their score percentage.
+function calculateScores(triviaGameObject) {
   let scoreNumbers = document.getElementById("scoreNumbers");
   let scoreAnalysis = document.getElementById("scoreAnalysis");
   let correctAnswersTotal = triviaGameObject.correctAnswers;
   let incorrectAnswersTotal = triviaGameObject.incorrectAnswers;
   scoreNumbers.innerText = `Correct answers: ${correctAnswersTotal}\n Incorrect answers: ${incorrectAnswersTotal}`;
-
-  if (correctAnswersTotal > incorrectAnswersTotal) {
-    scoreAnalysis.innerText = "You got more right answers than wrong! Nice work!";
-  } else if (correctAnswersTotal == incorrectAnswersTotal) {
-    scoreAnalysis.innerText = "You got an equal number of right and wrong answers! Not bad!";
-  } else if (correctAnswersTotal < incorrectAnswersTotal) {
-    scoreAnalysis.innerText = "You got more wrong answers than right! Better luck next time!";
-  }
+  let scorePercentage = correctAnswersTotal / triviaGameObject.totalQuestions;
+  let finalScorePercentage = (scorePercentage * 100).toFixed(0);
+  scoreAnalysis.innerText = `Your score is ${finalScorePercentage}%.`;
 }
 
 // shuffles the array of answers so that the order is different every time
 function shuffleAnswersArray(answersArray) {
   answersArray.sort(() => Math.random() - 0.5);
 }
-
 
 // retrieves another trivia question for the player
 function getNextTriviaQuestion() {
