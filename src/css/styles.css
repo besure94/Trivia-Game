@@ -12,6 +12,7 @@
   display: flex;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 0.5rem;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 }
 
 #correctAnswers {
-  color: #fb8b24;
+  color: #d90368;
   font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -56,6 +57,7 @@ body {
   display: flex;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 0.5rem;
 }
 
 h1 {
@@ -97,7 +99,7 @@ hr {
 }
 
 #incorrectAnswers {
-  color: #fb8b24;
+  color: #d90368;
   font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -110,10 +112,11 @@ hr {
   display: flex;
   font-size: 1.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 0.5rem;
 }
 
 #questionsRemaining {
-  color: #fb8b24;
+  color: #d90368;
   font-size: 2rem;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -127,6 +130,7 @@ hr {
   display: flex;
   font-size: 1.75rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 0.5rem;
 }
 
 #result {
@@ -166,7 +170,7 @@ hr {
 }
 
 #triviaQuestion {
-  color: #d90368;
+  color: #fb8b24;
   font-weight: 900;
   text-align: center;
   font-size: 2rem;
