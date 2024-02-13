@@ -46,11 +46,10 @@ const url = `https://opentdb.com/api.php?amount=10&category=14&difficulty=medium
 
 * Currently the user is not shown a message telling them to please select an answer if they do not select an answer and click "Guess!". Instead the form will just not submit.
 * There is not yet functionality to ensure that the user is not given the same question twice during a game, or a playing session where multiple games are played.
-* Although rare, API data in the questions and answers contains special characters that are not visually pleasing to a user.
+* Although rare, the displayed API question and response contains special characters that are not visually pleasing to a user.
 
 ## Further Exploration
 
-* Add session tokens to application.
 * Eventually I would like to refactor the application to show the user multiple questions in the form of trivia cards, which they can choose from.
 * Add UI (User Interface) functionality to allow a user to play by selecting a difficulty of their choosing.
 * Could also allow a user to play by selecting a topic of their choosing in the UI.
