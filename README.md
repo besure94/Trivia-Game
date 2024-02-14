@@ -44,9 +44,9 @@ const url = `https://opentdb.com/api.php?amount=10&category=14&difficulty=medium
 
 ## Known Bugs
 
+* The Open Trivia Database API no longer offers session tokens to a user, despite mentioning it in their documentation, which allows a user to potentially get the same question if they decide to play multiple games.
 * Currently the user is not shown a message telling them to please select an answer if they do not select an answer and click "Guess!". Instead the form will just not submit.
-* There is not yet functionality to ensure that the user is not given the same question twice during a game, or a playing session where multiple games are played.
-* Although rare, the displayed API question and response contains special characters that are not visually pleasing to a user.
+* Although rare, the displayed API question and response sometimes contains special characters that are not visually pleasing to a user.
 
 ## Further Exploration
 
