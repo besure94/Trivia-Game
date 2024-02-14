@@ -78,10 +78,10 @@ function playTriviaGame() {
     form.appendChild(label);
     form.appendChild(document.createElement("br"));
   }
+
   // user clicks "Guess!" button
   // answer is then evaluated, and displays a message stating whether it is correct or incorrect
   button.addEventListener("click", function() {
-    document.getElementById("scoreTally").removeAttribute("class", "hidden");
     let guessedAnswer = document.querySelector('input[name="userAnswer"]:checked').value;
     document.querySelector("div#triviaAnswer").innerText = "";
     let answerDiv = document.createElement("div");
@@ -100,6 +100,7 @@ function playTriviaGame() {
     // the trivia question and answers are then hidden
     // a function that displays the next trivia question is called
     // update the scores in the DOM and keep track of questions remaining
+    document.getElementById("scoreTally").removeAttribute("class", "hidden");
     triviaGameObject.questionsRemaining -= 1;
     document.getElementById("correctAnswers").innerText = triviaGameObject.correctAnswers;
     document.getElementById("incorrectAnswers").innerText = triviaGameObject.incorrectAnswers;
